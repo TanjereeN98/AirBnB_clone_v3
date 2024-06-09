@@ -18,8 +18,8 @@ def close(e):
 
 
 @app.errorhandler(404)
-def page_not_found(e):
-    """ Custom 404 error page """
+def page_not_found(error):
+    """handler for 404 errors"""
     return (jsonify({"error": "Not found"}), 404)
 
 
