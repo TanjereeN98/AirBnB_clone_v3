@@ -12,7 +12,7 @@ from models import storage
 def get_all_amenities():
     """Retrieves the list of all Amenity objects"""
     amenitites = [amenity.to_dict()
-                  for amenity in storage.all(Amenity).values]
+                  for amenity in storage.all(Amenity).values()]
     return make_response(jsonify(amenitites), 200)
 
 
@@ -44,10 +44,10 @@ def create_amenity(state_id):
     amenity = request.get_json()
     if not request.is_json:
         return make_response("Not a JSON", 400)
-    if 'name' not in amenity:
+    elif 'name' not in amenity:
         return make_response("Missing name", 400)
     new_amenity = Amenity(**amenity)
-    storage.save()
+    new_amenity.save()
     return make_response(jsonify(new_amenity.to_dict()), 201)
 
 
