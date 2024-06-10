@@ -59,7 +59,7 @@ def create_city(state_id):
     return make_response(jsonify(new_city.to_dict()), 201)
 
 
-@app_views.route('cities/<city_id>', methods=['PUT'])
+@app_views.route('/cities/<city_id>', methods=['PUT'])
 def update_city(city_id):
     """update a city by id"""
     city = storage.get(City, city_id)
